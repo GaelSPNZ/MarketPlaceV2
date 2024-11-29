@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const multer = require('multer');
 const path = require('path');
 
@@ -22,7 +22,8 @@ app.use(express.static('public'));
 // Importer les routes
 const indexRoutes = require('./routes/index');
 app.use('/', indexRoutes);
-    //route d'importation d'image
+
+//route d'importation d'image
 app.post('/upload', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'Aucun fichier téléchargé' });
@@ -38,7 +39,7 @@ app.get('/', (req, res) => {
 });
 
 // Démarrer le serveur
-app.listen(PORT, () => {
-  console.log(`Serveur démarré sur http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Serveur démarré sur le porte ${PORT}`);
 });
 
