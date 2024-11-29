@@ -1,0 +1,26 @@
+document.getElementById('articleForm').addEventListener('submit', (event) => {
+  event.preventDefault(); // Empêche le rechargement de la page
+
+  // Récupérer les données du formulaire
+  const title = document.getElementById('articleTitle').value;
+  const description = document.getElementById('articleDescription').value;
+  const image = document.getElementById('articleImage').value;
+
+  // Charger les articles existants ou initialiser un tableau vide
+  const articles = JSON.parse(localStorage.getItem('articles')) || [];
+
+  // Créer un nouvel article avec association au profil utilisateur
+  const newArticle = {
+      id: 'article-' + Date.now(),
+      title: title,
+      description: description,
+      image: image,
+  };
+
+  // Ajouter l'article à la liste et l'enregistrer dans LocalStorage
+  articles.push(newArticle);
+  localStorage.setItem('articles', JSON.stringify(articles));
+
+  alert('Article créé avec succès !');
+  document.getElementById('articleForm').reset(); // Réinitialiser le formulaire
+});

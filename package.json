@@ -1,0 +1,19 @@
+{
+  "name": "projethandicapv1",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "ESPINOZA Gael",
+  "license": "ISC",
+  "description": "Ce site est un premier essai pour apprendre le code et déployer mon site d'échange de matériel médical",
+  "dependencies": {
+    "express": "^4.21.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
